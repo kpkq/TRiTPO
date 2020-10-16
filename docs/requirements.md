@@ -32,6 +32,12 @@
 #### 2.2.3 Корзина 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Cart.png)
 
+#### 2.2.4 Вход в аккаунт 
+![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Sign%20in.png)
+
+#### 2.2.4 Регистрация 
+![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Sign%20up.png)
+
 ## 3 Системные требования 
 Для использования приложения необходим браузер.
 
