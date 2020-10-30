@@ -23,19 +23,22 @@
   среды разработки (IDE) выбрана **PyCharm**.
   
 ### 2.2 Интерфейс пользователя
-#### 2.2.1 Главная страница сайта
-![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Home.png)
+#### 2.2.1 Главная страница сайта для авторизированного пользователя
+![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Home%20(authorized).png)
 
-#### 2.2.2 Страница конкретной книги 
+#### 2.2.2 Главная страница сайта для неавторизированного пользователя
+![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Home%20(unauthorized).png)
+
+#### 2.2.3 Страница конкретной книги 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Book.png)
 
-#### 2.2.3 Корзина 
+#### 2.2.4 Корзина 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Cart.png)
 
-#### 2.2.4 Вход в аккаунт 
+#### 2.2.5 Вход в аккаунт 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Sign%20in.png)
 
-#### 2.2.4 Регистрация 
+#### 2.2.6 Регистрация 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Sign%20up.png)
 
 ## 3 Системные требования 
