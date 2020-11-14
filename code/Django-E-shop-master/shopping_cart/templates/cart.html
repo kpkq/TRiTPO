@@ -1,0 +1,102 @@
+{% extends 'main_template.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+Cart
+{% endblock %}
+<!--Section: Block Content-->
+<section>
+{% block body %}
+        <div class="right">
+
+      <!-- Card -->
+      <div class="mb-3">
+        <div class="pt-4">
+            <form method="POST">
+              {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{ form|crispy }}
+              <button type="submit" class="btn btn-primary">Подтвердить заказ</button>
+            </form>
+
+          <h5 class="mb-3">Итоговая стоимость заказа:</h5>
+          <ul class="list-group list-group-flush">
+            <li class="">
+              Итого:
+              <span>{{ total }} BYN</span>
+          </ul>
+        <div>
+            <a href="{% url 'clear_cart' %}" class="btn btn-primary">Очистить корзину</a>
+        </div>
+
+
+        </div>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+    <ul>
+{% for cart_item in cart %}
+<li>
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-8">
+
+      <!-- Card -->
+      <div class="mb-3">
+        <div class="pt-4 wish-list">
+
+          <hr class="mb-4">
+            <div class="col-md-5 col-lg-3 col-xl-3">
+              <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                <img class="img-fluid w-100"
+                  src={{ cart_item.prod.image.url }}>
+                <a href="#!">
+                  <div class="mask">
+                    <div class="mask rgba-black-slight"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-9 col-xl-9">
+              <div>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5>{{ cart_item.prod.prod_name }}</h5>
+                    <p class="mb-3 text-muted text-uppercase small">Цена: {{ cart_item.prod.price }}</p>
+                      <label class="mb-2 text-muted text-uppercase small" id="quantity-field">Количество: {{ cart_item.quantity }}</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a href="{% url 'delete_from_cart' cart_item.prod %}" type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                        class="fas fa-trash-alt mr-1"></i> Удалить из коризны </a>
+                  </div>
+                  <p class="mb-0"><span><strong>{{ cart_item.price }} BYN</strong></span></p class="mb-0">
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    {% endfor %}
+    </ul>
+    <!--Grid column-->
+    <style>
+        .right {
+            position: absolute;
+            padding-right: 100px;
+            padding-top: 50px;
+            right: 0;
+
+        }
+    </style>
+    <!--Grid column-->
+
+  <!-- Grid row -->
+</section>
+<!--Section: Block Content-->
+
+{% endblock %}

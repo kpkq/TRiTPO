@@ -1,0 +1,65 @@
+{% extends 'main_template.html' %}
+
+{% block title %}
+    {{ prod.prod_name }}
+{% endblock %}
+
+{% block body %}
+<!--Section: Block Content-->
+    <style>
+       .half-size {
+           height: 50%;
+           width: 50%;
+       }
+       .offset-left {
+           position: absolute;
+           padding-left: 100px;
+           padding-top: 50px;
+           left: 0;
+       }
+       .offset-right {
+           position: absolute;
+           padding-right: 200px;
+           padding-top: 50px;
+           right: 0;
+       }
+    </style>
+<section class="mb-5">
+  <div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+          <div class="col-12 mb-0 offset-left" style="margin-left: 100px;">
+              <a href="{{ prod.image.url }}">
+                <img src="{{ prod.image.url }}" class="half-size">
+              </a>
+          </div>
+        </div>
+    <div class="col-md-6 offset-right">
+
+      <h5>{{ prod.prod_name }}</h5>
+      <p><span class="mr-1"><strong>{{ prod.price }} BYN</strong></span></p>
+      <p class="pt-1">{{ prod.description }}</p>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless mb-0">
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <div style="text-align: center" class="table-responsive mb-2">
+                <div>
+                    <form method="POST">
+                        {% csrf_token %}
+                            {{ form.as_p }}
+                              <button type="submit" class="btn btn-primary">Добавить в корзину</button>
+
+                    </form>
+                </div>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!--Section: Block Content-->
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main_template.html' %}
+
+{% block title %}
+    Bookshop
+{% endblock %}
+
+{% block body %}
+    <style>
+   table {
+    width: 300px; /* Ширина таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+    border-collapse: separate;
+    border-spacing: 20px 25px;
+   }
+   .card-img-top {
+       height: 300px;
+       width: 170px;
+   }
+   td {
+    text-align: center; /* Выравниваем текст по центру ячейки */
+   }
+    </style>
+    <table>
+        {% for prod in prods %}
+            <p>
+            {% cycle '<tr>' '' '' '' %}
+                <td>
+                    <div class="card" style="width: 18rem">
+                      <img src={{ prod.image.url }} class="card-img-top" style="display: block; margin-left: auto; margin-right: auto; padding: 10px" alt="..." >
+                      <div class="card-body">
+                        <h5 class="card-title">{{ prod.prod_name }}</h5>
+                          <a href="{% url 'specific_prod_url' prod.slug %}" class="btn btn-primary">Просмотреть</a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'add' prod.slug %}" class="btn btn-primary">Добавить в корзину</a>
+                          {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-primary">Добавить в корзину</a>
+                          {% endif %}
+                      </div>
+                    </div>
+                </td>
+            {% cycle '' '' '' '</tr>' %}
+        {% endfor %}
+    </table>
+{% endblock %}

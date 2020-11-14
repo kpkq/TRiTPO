@@ -1,0 +1,54 @@
+{% extends 'main_template.html' %}
+{% load crispy_forms_filters %}
+{% block title %}
+Profile
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+<section class="mb-5">
+
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-md-6 mb-4 mb-md-0">
+
+    <div id="mdb-lightbox-ui"></div>
+          <div class="col-12 mb-0 offset-left" style="margin-left: 75px;">
+              <a href="{{ profile_user.userprofile.profile_pic.url }}">
+                <img src="{{ profile_user.userprofile.profile_pic.url }}" style="height: 615px; width: 615px;">
+              </a>
+          </div>
+        </div>
+
+        <div class="well">
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+        <form id="tab" method="POST">
+
+        <div class="col-md-12 offset-right">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% load crispy_forms_tags %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Информация о профиле</legend>
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+            </fieldset>
+            <button type="submit">Обновить</button>
+        </form>
+          <div class="table-responsive">
+            <table class="table table-sm table-borderless mb-0">
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </form>
+  </div>
+    </div>
+</section>
+{% endblock %}
+
