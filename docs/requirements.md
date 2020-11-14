@@ -41,6 +41,9 @@
 #### 2.2.6 Регистрация 
 ![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/Sign%20up.png)
 
+#### 2.2.7 Регистрация 
+![](https://github.com/kpkq/TRiTPO/blob/main/docs/mockups/account.png)
+
 ## 3 Системные требования 
 Для использования приложения необходим браузер.
 
